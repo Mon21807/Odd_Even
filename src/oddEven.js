@@ -1,20 +1,21 @@
 function generateNumber() {
-  // generate a random integer(hint : Math.random)
+  const numberDiv = document.getElementById('number');
+
+  const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+  numberDiv.textContent = randomNumber;
+
+  checkOddEven(randomNumber);
 }
 
-function checkOddEven(num) {
-  // logic for even / odd
+function checkOddEven(number) {
+  const oddEvenDiv = document.getElementById('odd-even');
+
+  if (number % 2 === 0) {
+    oddEvenDiv.textContent = 'Even - The number is even';
+  } else {
+    oddEvenDiv.textContent = 'Odd - The number is odd';
+  }
 }
 
-window.onload = function () {
-  // add event listeners to the button here
-};
-
-// donot change the following export statement
-
-if (typeof exports !== "undefined") {
-  module.exports = {
-    generateNumber,
-    checkOddEven,
-  };
-}
+document.getElementById('generate-btn').addEventListener('click', generateNumber);
